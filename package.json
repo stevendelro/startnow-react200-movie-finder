@@ -4,7 +4,7 @@
   "description": "Project to learn react router",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run less && webpack",
+    "build": "npm run less && webpack -w",
     "start": "node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
     "lint": "eslint .",
@@ -29,7 +29,6 @@
     "less-plugin-autoprefix": "^1.5.1",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.10.2",
-    "moment": "^2.20.1",
     "morgan": "^1.8.1",
     "prop-types": "^15.5.10",
     "radium": "^0.19.6",
