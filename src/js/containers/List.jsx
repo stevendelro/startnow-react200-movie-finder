@@ -27,30 +27,13 @@ class List extends Component {
   render() {
     const movieCards = this.props.list.movies.map(movie => (
       <StyleRoot key={uuid()} style={styles.bounceInUp}>
-        <article
-          className='media box'
-          style={{
-            marginTop: 2 + 'rem',
-            marginRight: 15 + '%',
-            marginBottom: 2 + 'rem',
-            marginLeft: 15 + '%'
-          }}>
+        <article className='media box poster-image'>
           <figure className='media-left'>
             <p className='image is-hidden-mobile'>
               {movie.Poster === 'N/A' ? (
-                <img
-                  src={backupImage}
-                  style={{
-                    margin: 'auto'
-                  }}
-                />
+                <img src={backupImage} className='margin-auto' />
               ) : (
-                <img
-                  src={movie.Poster}
-                  style={{
-                    margin: 'auto'
-                  }}
-                />
+                <img src={movie.Poster} className='margin-auto' />
               )}
             </p>
           </figure>
@@ -74,16 +57,16 @@ class List extends Component {
                 style={{ marginBottom: 10 + 'px' }}>
                 {movie.Year}
               </span>
-              <p className='text-body-font is-size-6-tablet'>{movie.Plot}</p>
+              <p className='text-body-font is-size-6-tablet'>
+                {movie.Plot === 'N/A' ? (
+                  "Unfortunately the database doesn't have any plot info."
+                ) : (
+                  movie.Plot
+                )}
+              </p>
             </div>
             <Link to={`/movie/${movie.imdbID}`}>
-              <div
-                className='button is-pulled-right is-outlined is-dark has-text-weight-bold text-body-font'
-                style={{
-                  marginTop: 2.5 + 'rem',
-                  marginRight: 1 + 'rem',
-                  marginBottom: 0.5 + 'rem'
-                }}>
+              <div className='button is-pulled-right is-outlined is-dark has-text-weight-bold text-body-font more-info-button'>
                 More Information
               </div>
             </Link>

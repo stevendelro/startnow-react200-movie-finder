@@ -9,7 +9,7 @@ import Radium, { StyleRoot } from 'radium';
 
 const styles = {
   zoomIn: {
-    animation: 'x .6s',
+    animation: 'x .4s',
     animationName: Radium.keyframes(zoomIn, 'zoomIn')
   }
 };
@@ -21,34 +21,17 @@ class MovieDetail extends Component {
 
   render() {
     const { detail } = this.props;
-    console.log('detail.poster', detail.poster);
     return (
       <StyleRoot style={styles.zoomIn}>
-        <div
-          className='container'
-          style={{
-            paddingTop: `${3}rem`,
-            paddingLeft: `${3}rem`,
-            paddingRight: `${3}rem`
-          }}>
+        <div className='container detail-container-padding'>
           <div className='tile is-ancestor'>
             <div className='tile is-parent'>
               <div className='tile is-child '>
                 <figure className='image'>
                   {detail.poster === 'N/A' ? (
-                    <img
-                      src={backupImage}
-                      style={{
-                        margin: 'auto'
-                      }}
-                    />
+                    <img src={backupImage} className='margin-auto' />
                   ) : (
-                    <img
-                      src={detail.poster}
-                      style={{
-                        margin: 'auto'
-                      }}
-                    />
+                    <img src={detail.poster} className='margin-auto' />
                   )}
                 </figure>
               </div>
@@ -68,7 +51,11 @@ class MovieDetail extends Component {
                       Synopsis
                     </h1>
                     <p>
-                      {detail.plot === '' ? 'Plot unavailable' : detail.plot}
+                      {detail.plot === 'N/A' ? (
+                        "Yep, the database definitely doesn't have any plot info. Sorry about that."
+                      ) : (
+                        detail.plot
+                      )}
                     </p>
                   </div>
                 </article>
@@ -92,7 +79,13 @@ class MovieDetail extends Component {
                               <i className='fas fa-calendar-alt' />
                             </td>
                             <td>Released</td>
-                            <td>{detail.yearReleased}</td>
+                            <td>
+                              {detail.yearReleased === 'N/A' ? (
+                                'Unknown'
+                              ) : (
+                                detail.yearReleased
+                              )}
+                            </td>
                           </tr>
 
                           <tr>
@@ -100,7 +93,13 @@ class MovieDetail extends Component {
                               <i className='fas fa-stopwatch' />
                             </td>
                             <td>Runtime</td>
-                            <td>{detail.runtime}</td>
+                            <td>
+                              {detail.runtime === 'N/A' ? (
+                                'Unknown'
+                              ) : (
+                                detail.runtime
+                              )}
+                            </td>
                           </tr>
 
                           <tr>
@@ -108,7 +107,13 @@ class MovieDetail extends Component {
                               <i className='fas fa-chart-pie' />
                             </td>
                             <td>Genres</td>
-                            <td>{detail.genre}</td>
+                            <td>
+                              {detail.genre === 'N/A' ? (
+                                'Unavailable'
+                              ) : (
+                                detail.genre
+                              )}
+                            </td>
                           </tr>
 
                           <tr>
@@ -116,7 +121,13 @@ class MovieDetail extends Component {
                               <i className='fas fa-money-bill-alt' />
                             </td>
                             <td>Box Office</td>
-                            <td>{detail.boxOffice}</td>
+                            <td>
+                              {detail.boxOffice === 'N/A' ? (
+                                'Unknown'
+                              ) : (
+                                detail.boxOffice
+                              )}
+                            </td>
                           </tr>
 
                           <tr>
@@ -125,7 +136,13 @@ class MovieDetail extends Component {
                             </td>
                             <td>Metascore</td>
                             <td>
-                              <p>{detail.metascore} / 100</p>
+                              <p>
+                                {detail.metascore === 'N/A' ? (
+                                  'Not Rated'
+                                ) : (
+                                  `${detail.metascore} / 100`
+                                )}
+                              </p>
                             </td>
                           </tr>
 
@@ -135,7 +152,13 @@ class MovieDetail extends Component {
                             </td>
                             <td>IMDB</td>
                             <td>
-                              <p>{detail.IMDBrating} / 10</p>
+                              <p>
+                                {detail.IMDBrating === 'N/A' ? (
+                                  'Not Rated'
+                                ) : (
+                                  `${detail.IMDBrating} / 10`
+                                )}
+                              </p>
                             </td>
                           </tr>
 
@@ -146,9 +169,11 @@ class MovieDetail extends Component {
                             <td>More Info</td>
                             <td>
                               {' '}
-                              {
+                              {detail.website === 'N/A' ? (
+                                'Website Unavailable'
+                              ) : (
                                 <a href={detail.website}>{detail.website}</a>
-                              }{' '}
+                              )}{' '}
                             </td>
                           </tr>
 
@@ -159,12 +184,7 @@ class MovieDetail extends Component {
                   </article>
                 </div>
                 <Link to='/'>
-                  <div
-                    className='button is-pulled-right is-outlined is-dark inline-block has-text-weight-bold text-body-font'
-                    style={{
-                      marginTop: `${1}rem`,
-                      width: `${100}%`
-                    }}>
+                  <div className='return-home-button button is-pulled-right is-outlined is-dark inline-block has-text-weight-bold text-body-font'>
                     Return Home
                   </div>
                 </Link>
