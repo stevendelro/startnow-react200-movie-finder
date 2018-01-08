@@ -18,10 +18,10 @@ const styles = {
 
 class List extends Component {
   shouldComponentUpdate = () => {
-    if (this.props.list.payload == '') {
-      return false;
-    } else {
+    if (this.props.list.movie === []) {
       return true;
+    } else {
+      return false;
     }
   };
   render() {

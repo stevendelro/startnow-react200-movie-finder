@@ -9,7 +9,7 @@ import Radium, { StyleRoot } from 'radium';
 
 const styles = {
   zoomIn: {
-    animation: 'x .2s',
+    animation: 'x .6s',
     animationName: Radium.keyframes(zoomIn, 'zoomIn')
   }
 };
