@@ -1,0 +1,6 @@
+deployment:
+  prod:
+    branch: master
+    heroku:
+      appname: sd-movie-finder
+

@@ -1,7 +1,10 @@
 require("babel-polyfill");
-const path = require('path');
+const url = `${ROOT_URL}?s=${searchTerm}${API_KEY}`;
 const express = require('express');
 const morgan = require('morgan');
+const axios = require('axios');
+const path = require('path');
+
 
 const app = express();
 
@@ -14,6 +17,15 @@ app.use(express.static(public));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(public, 'index.html'));
+});
+
+app.get(url, (req,res) => {
+   axios.get(url)
+    .then(response => {
+      console.log('response:' , response.data);
+      res.send(response.data);
+    })
+    .catch(err => res.send('HTTPS middleware error:',err.message));
 });
 
 module.exports = app;
