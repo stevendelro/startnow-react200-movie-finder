@@ -2,7 +2,7 @@ import axios from 'axios';
 import mapKeys from 'lodash/mapKeys';
 
 const API_KEY = '&apikey=95db710c';
-const ROOT_URL = 'http://www.omdbapi.com/';
+const ROOT_URL = 'https://www.omdbapi.com/';
 
 export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
 export const FETCH_MAIN_DATA_START = 'FETCH_MAIN_DATA_START';
