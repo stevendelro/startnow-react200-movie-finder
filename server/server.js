@@ -19,13 +19,31 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(public, 'index.html'));
 });
 
-app.get(url, (req,res) => {
+app.get('/s=', (req,res) => {
    axios.get(url)
     .then(response => {
       console.log('response:' , response.data);
       res.send(response.data);
     })
-    .catch(err => res.send('HTTPS middleware error:',err.message));
+    .catch(err => res.send('/s= error:',err.message));
+});
+
+app.get('/t=', (req,res) => {
+  axios.get(url)
+   .then(response => {
+     console.log('response:' , response.data);
+     res.send(response.data);
+   })
+   .catch(err => res.send('/t= error:',err.message));
+});
+
+app.get('/i=', (req,res) => {
+  axios.get(url)
+   .then(response => {
+     console.log('response:' , response.data);
+     res.send(response.data);
+   })
+   .catch(err => res.send('/i= error:',err.message));
 });
 
 module.exports = app;
