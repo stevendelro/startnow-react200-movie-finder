@@ -17,16 +17,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(public, 'index.html'));
 });
 
-app.get('/', function(req,res) {
-  const url = `http://www.omdbapi.com/?s=${req.query.s}&apikey=95db710c`;
-  axios.get(url)
-    .then(response => {
-      console.log('response:' , response.data);
-      res.send(response.data);
-    })
-    .catch(err => res.send(err.message));
-});
-
-
 
 module.exports = app;
