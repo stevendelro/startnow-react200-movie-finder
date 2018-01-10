@@ -4,7 +4,7 @@
   "description": "Project to learn react router",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run less && webpack",
+    "build": "npm run less && webpack -p",
     "start": "npm run build && node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
     "lint": "eslint .",
