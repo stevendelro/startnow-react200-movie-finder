@@ -1,5 +1,4 @@
 import axios from 'axios';
-import pTimeout from 'p-timeout';
 
 const API_KEY = '&apikey=95db710c';
 const ROOT_URL = 'https://www.omdbapi.com/';
