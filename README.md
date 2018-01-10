@@ -1,9 +1,14 @@
 ## An OMDB search app built with React/Redux/React-Router
-A search app that utilizes the OMDB API to find a list of movies by title and details by movie. 
+This is a search app that utilizes the OMDB API to find a list of movies by title, then details by movie when you select a movie. 
+
+As it stands right now, the OMDB API isn't optimized for https. 
+
+* With https calls, 1-in-3 requests have response failures.
+* With http calls, everything pretty much works as intended.
 
 ### [DEMO](http://sd-movie-finder.herokuapp.com)
 
-Made to be used with http instead of https. The OMDB API as it is right now isn't optimized for https. 1-in-3 requests fail with https API calls and nearly none fail with http.
+If you have problems getting it to load, check the URL and make sure it's http not https.
 
 ### Technologies used
 
