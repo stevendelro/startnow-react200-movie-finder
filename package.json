@@ -4,7 +4,7 @@
   "description": "Project to learn react router",
   "main": "server/index.js",
   "scripts": {
-    "build": "npm run less && webpack -p",
+    "build": "npm run less && webpack",
     "start": "npm run build && node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
     "lint": "eslint .",
@@ -30,7 +30,6 @@
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.10.2",
     "morgan": "^1.8.1",
-    "p-timeout": "^2.0.1",
     "prop-types": "^15.5.10",
     "radium": "^0.19.6",
     "react": "^15.3.2",
