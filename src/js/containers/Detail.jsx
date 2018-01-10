@@ -27,8 +27,8 @@ class MovieDetail extends Component {
     }
 
     return (
-      <StyleRoot style={styles.zoomIn} className={{marginBottom: 8 + 'rem'}}>
-        <div className='container detail-container-padding'>
+      <StyleRoot style={styles.zoomIn}>
+        <div className='container detail-container-padding' style={{marginBottom: 4 + 'rem'}}>
           <div className='tile is-ancestor'>
             <div className='tile is-parent'>
               <div className='tile is-child '>
