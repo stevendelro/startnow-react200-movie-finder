@@ -28,16 +28,22 @@ class List extends Component {
     const movieCards = this.props.list.movies.map(movie => (
       <StyleRoot key={uuid()} style={styles.bounceInUp}>
         <article className='media box poster-image'>
-          <figure className='media-left'>
-            <p className='image is-hidden-mobile'>
+          <figure className='media-left margin-auto flex-shrink-none'>
+            <p className='image'>
               {movie.Poster === 'N/A' ? (
-                <img src={backupImage} className='margin-auto' />
+                <Link to={`/movie/${movie.imdbID}`}>
+                  <img src={backupImage} className='margin-auto' />
+                </Link>
               ) : (
-                <img src={movie.Poster} className='margin-auto' />
+                <Link to={`/movie/${movie.imdbID}`}>
+                  <img src={movie.Poster} className='margin-auto' />
+                </Link>
               )}
             </p>
           </figure>
-          <div className='media-content'>
+          <div
+            className='media-content is-hidden-mobile'
+            style={{ marginLeft: 1 + 'rem', width: 'min-content' }}>
             <div className='content'>
               <p className='is-marginless'>
                 <strong
@@ -52,12 +58,7 @@ class List extends Component {
               <hr
                 style={{ marginTop: 0.5 + 'rem', marginBottom: 0.5 + 'rem' }}
               />
-              <span
-                className='tag is-small is-light has-text-weight-bold is-inline-block is-hidden-tablet'
-                style={{ marginBottom: 10 + 'px' }}>
-                {movie.Year}
-              </span>
-              <p className='text-body-font is-size-6-tablet'>
+              <p className='text-body-font is-size-7-mobile'>
                 {movie.Plot === 'N/A' ? (
                   "Unfortunately the database doesn't have any plot info."
                 ) : (

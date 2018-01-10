@@ -107,7 +107,7 @@ class MovieDetail extends Component {
                             </td>
                           </tr>
 
-                          <tr>
+                          <tr className='no-overflow'>
                             <td width='5%'>
                               <i className='fas fa-chart-pie' />
                             </td>
@@ -167,7 +167,7 @@ class MovieDetail extends Component {
                             </td>
                           </tr>
 
-                          <tr>
+                          <tr className='is-hidden-mobile'>
                             <td width='5%'>
                               <i className='fas fa-info-circle' />
                             </td>
