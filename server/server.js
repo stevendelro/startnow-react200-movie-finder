@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 const public = path.join(__dirname, '..', 'public');
 const dist = path.join(__dirname, '..', 'dist');
-const favicon = path.join(public, 'favicon.ico');
+const icon = path.join(public, 'favicon.ico');
 
 const allowCrossDomain = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -23,7 +23,7 @@ const allowCrossDomain = (req, res, next) => {
 
 app.use(allowCrossDomain);
 app.use(morgan('dev'));
-app.use(favicon(favicon));
+app.use(favicon(icon));
 app.use(express.static(dist));
 app.use(express.static(public));
 
