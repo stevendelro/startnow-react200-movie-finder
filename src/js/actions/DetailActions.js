@@ -5,9 +5,11 @@ const ROOT_URL = 'https://www.omdbapi.com/';
 export const FETCH_DETAIL_STARTED = 'FETCH_DETAIL_STARTED';
 export const FETCH_DETAIL_FULFILLED = 'FETCH_DETAIL_FULFILLED';
 export const FETCH_ERROR = 'FETCH_ERROR';
+export const CLEAR_DETAILS = 'CLEAR_DETAILS';
 
 export const fetchError = error => ({ type: FETCH_ERROR, error });
 export const fetchDetailStarted = () => ({ type: FETCH_DETAIL_STARTED });
+export const clearDetails = () => ({ type: CLEAR_DETAILS });
 export const fetchFulfilled = response => ({
   type: FETCH_DETAIL_FULFILLED,
   payload: response

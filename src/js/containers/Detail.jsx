@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import backupImage from '../../../public/backupImage.png';
-import { fetchDetailByID } from '../actions/DetailActions';
+import { fetchDetailByID, clearDetails } from '../actions/DetailActions';
 import { zoomIn } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 
@@ -15,12 +15,17 @@ const styles = {
 };
 
 class MovieDetail extends Component {
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.fetchDetailByID(this.props.match.params.id);
   };
 
   render() {
     const { detail } = this.props;
+
+    const clearState = () => {
+      this.props.clearDetails();
+    }
+
     return (
       <StyleRoot style={styles.zoomIn}>
         <div className='container detail-container-padding'>
@@ -184,7 +189,9 @@ class MovieDetail extends Component {
                   </article>
                 </div>
                 <Link to='/'>
-                  <div className='return-home-button button is-pulled-right is-outlined is-dark inline-block has-text-weight-bold text-body-font'>
+                  <div 
+                    onClick={clearState}
+                    className='return-home-button button is-pulled-right is-outlined is-dark inline-block has-text-weight-bold text-body-font'>
                     Return Home
                   </div>
                 </Link>
@@ -198,7 +205,7 @@ class MovieDetail extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDetailByID }, dispatch);
+  return bindActionCreators({ fetchDetailByID, clearDetails }, dispatch);
 }
 
 function mapStateToProps({ detail }) {

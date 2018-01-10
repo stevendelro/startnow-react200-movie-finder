@@ -1,7 +1,8 @@
 import {
   FETCH_DETAIL_STARTED,
   FETCH_DETAIL_FULFILLED,
-  FETCH_ERROR
+  FETCH_ERROR,
+  CLEAR_DETAILS
 } from '../actions/DetailActions';
 
 const INITIAL_STATE = {
@@ -33,6 +34,22 @@ export default function(state = INITIAL_STATE, action) {
         metascore: payload.data.Metascore,
         IMDBrating: payload.data.imdbRating,
         website: payload.data.Website
+      };
+      break;
+    case CLEAR_DETAILS:
+      return {
+        ...state,
+        imdbID: '',
+        title: '',
+        poster: '',
+        yearReleased: '',
+        plot: '',
+        boxOffice: '',
+        runtime: '',
+        genre: '',
+        metascore: '',
+        IMDBrating: '',
+        website: ''
       };
       break;
     case FETCH_ERROR:
